@@ -32,6 +32,10 @@ public class OOPgroupproject {
                 int choice = input.nextInt();
 
                 // Process selection
+                // add after 
+                // case 2:
+                //  household.viewAllAppliances();
+                //  break;
                 switch (choice) {
                     case 1:
                         System.out.println("Directing to Add Appliance....");
@@ -59,7 +63,7 @@ public class OOPgroupproject {
                         running = false; // Break the main menu loop
                         break;
                     default:
-                        System.out.println("Error: Choice out of range. Please enter 1 or 2 or 3.....");
+                        System.out.println("Error: Please enter a number between 1 and 8.");
                 }
             } else {
                 System.out.println("Error: Invalid entry. Please enter a valid integer.");
