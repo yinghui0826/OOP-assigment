@@ -11,7 +11,7 @@ package com.mycompany.oopgroupproject;
 public class CoolingAppliance{
     private String name;
     private double power;
-    private double hours;
+    private double hours;       ············
     
     public CoolingAppliance() {
 
@@ -52,5 +52,5 @@ public class CoolingAppliance{
     }
     
     
-
+    
 }
