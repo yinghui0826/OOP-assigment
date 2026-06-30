@@ -9,12 +9,21 @@ package com.mycompany.oopgroupproject;
  * @author Dell
  */
 public class Appliance {
+    //instance variable - encapsulation
     private String name;
     private double powerWatts;
     private double hoursPerDay;
     
+    //behaviour - methods 
+    
+    //constructor
+    //no need return type eg.void
+    //method name follows the clas name
+    public Appliance(){ //default constructor
+        this("XXX", 1000.5, 9.5);
+    }
     public Appliance (String name, double powerWatts, double hoursPerDay){
-        setName(name);
+        setName(name); //validation happens when values are set.
         setPowerWatts(powerWatts);
         setHoursPerDay (hoursPerDay);
     }
