@@ -17,7 +17,7 @@ public class CoolingAppliance extends Appliance {
             this.hoursPerDay=hoursPerDay;
         }
         public double getHoursPerDay(){
-            return hoursUsed;
+            return hoursPerDay;
         }
         public void setHoursPerDay(double hoursPerDay){
             this.hoursPerDay=hoursPerDay;
