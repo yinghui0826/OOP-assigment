@@ -8,49 +8,34 @@ package com.mycompany.oopgroupproject;
  *
  * @author qingyu
  */
-public class CoolingAppliance{
-    private String name;
-    private double power;
-    private double hours;      
+public class CoolingAppliance extends Appliance {
     
-    public CoolingAppliance() {
+        private double hoursPerDay;
 
+        public CoolingAppliance(String name, double powerWatts, double hoursPerDay) {
+            super(name,powerWatts,hoursPerDay);
+            this.hoursPerDay=hoursPerDay;
+        }
+        public double getHoursPerDay(){
+            return hoursUsed;
+        }
+        public void setHoursPerDay(double hoursPerDay){
+            this.hoursPerDay=hoursPerDay;
+        }
+        public double calculateEnergy(){
+            return(getPowerWatts()*hoursPerDay)/1000;
+        }
+        @Override
+        public String getType() {
+            return "Cooling Appliance";
+        }
+        @Override
+        
+        public String toString(){
+             return "CoolingAppliance ["+
+                     super.toString()+
+                     ", Hours Per Day = "+hoursPerDay+
+                     ", Energy = "+ calculateEnergy()+"kWh]";
+        }   
     }
-    
-    public CoolingAppliance(String name, double power, double hours){
-        this.name=name;
-        this.power=power;
-        this.hours=hours;
 
-    }
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name=name;
-    }
-    public double getPower(){
-        return power;
-    }
-    public void setPower(double power){
-        this.power=power;
-    }
-    public double getHours(){
-        return hours;
-    }
-    public void setHours(double hours){
-        this.hours=hours;
-    }
-    public double calculateEnergy(){
-        return(power*hours)/1000;
-    }
-    public void displayInfo(){
-         System.out.println("Cooling Appliance: " + name);
-         System.out.println("Power: " + power + " W");
-         System.out.println("Hours Used: " + hours);
-         System.out.println("Energy: " + calculateEnergy() + " kWh");
-    }
-    
-    
-    
-}
