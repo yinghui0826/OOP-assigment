@@ -16,16 +16,13 @@ public class Appliance {
     
     //behaviour - methods 
     
-    //constructor
+    //constructorSS
     //no need return type eg.void
     //method name follows the clas name
-    public Appliance(){ //default constructor
-        this("XXX", 1000.5, 9.5);
-    }
-    public Appliance (String name, double powerWatts, double hoursPerDay){
-        setName(name); //validation happens when values are set.
-        setPowerWatts(powerWatts);
-        setHoursPerDay (hoursPerDay);
+    public Appliance (String name, double powerWatts, double hoursPerDay){ //parameterized constructor 
+        this.name = name;
+        this.powerWatts = powerWatts;
+        this.hoursPerDay = hoursPerDay;
     }
     
     public String getName(){
@@ -41,7 +38,7 @@ public class Appliance {
     }
     
     //change private values
-    public void setName(String name){
+    public final void setName(String name){
         if (name == null || name.isEmpty()){
             System.out.println("Error: Name cannot be empty. Using 'Unknown'.");
             this.name = "Unknown";
@@ -51,7 +48,7 @@ public class Appliance {
         }
     }
     
-    public void setPoweWatts (double powerWatts){
+    public void setPowerWatts (double powerWatts){
         if (powerWatts < 0){
             System.out.println("Eror: Power cannot be negative. setting it to 0.");
             this.powerWatts = 0;
@@ -61,7 +58,7 @@ public class Appliance {
         }
     }
     
-    public void setHourPerDay(double hoursPerDay){
+    public void setHoursPerDay(double hoursPerDay){
         if (hoursPerDay < 0){
             System.out.println("Error: Hours cannot be in negative. Stiing it to 0.");
         }
