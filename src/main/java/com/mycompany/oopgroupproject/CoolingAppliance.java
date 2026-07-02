@@ -10,32 +10,31 @@ package com.mycompany.oopgroupproject;
  */
 public class CoolingAppliance extends Appliance {
     
-        private double hoursPerDay;
+        private int starRating;
 
-        public CoolingAppliance(String name, double powerWatts, double hoursPerDay) {
+        public CoolingAppliance(String name, double powerWatts, double hoursPerDay, int starRating) {
             super(name,powerWatts,hoursPerDay);
-            this.hoursPerDay=hoursPerDay;
+            this.starRating = starRating;
         }
-        public double getHoursPerDay(){
-            return hoursPerDay;
+        public int getStarRating(){
+            return starRating;
         }
-        public void setHoursPerDay(double hoursPerDay){
-            this.hoursPerDay=hoursPerDay;
+        public void setStarRating(int starRating){
+            this.starRating = starRating;
         }
-        public double calculateEnergy(){
-            return(getPowerWatts()*hoursPerDay)/1000;
-        }
+        
         @Override
         public String getType() {
             return "Cooling Appliance";
         }
         @Override
+        public String getConfigDetails() { 
+            return "Rating: " + starRating + "-Star"; 
+        }
         
-        public String toString(){
-             return "CoolingAppliance ["+
-                     super.toString()+
-                     ", Hours Per Day = "+hoursPerDay+
-                     ", Energy = "+ calculateEnergy()+"kWh]";
+        @Override
+        public double energyConsump() {
+            return (getPowerWatts() * getHoursPerDay() * 0.9) / 1000.0;
         }   
-    }
+}
 
