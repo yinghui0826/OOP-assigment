@@ -27,7 +27,7 @@ public class EnergyUsageRecordClass {
     
     //update the usage hours
     public void setActualHours(double actualHours){
-        if(actualHours>=0){ //validation ensures the value is not negative
+        if(actualHours>=0 && actualHours<=24){ //validation ensures the value is not negative
             this.actualHours=actualHours;
         }
     }
