@@ -19,22 +19,22 @@ public class EnergyReport {
         System.out.println("======================================================================");
         System.out.println("[POLYMORPHISM] Fetching customized energy algorithms...");
         
-        for(int i=0; i< appliances.size(); i++){
-            Appliance appliance = appliances.get(i);
-            
-                System.out.println("-> APP-00" + (i + 1)+ " evaluated via "+ appliance.getClass().getSimpleName()+ "::calculateEnergyConsumption()");
-                total += appliance.energyConsump();
+        for (Appliance appliance : appliances) {
+            // Dynamically retrieves class names and standard IDs without hardcoding index prefixes
+            System.out.println("-> " + appliance.getId() + " evaluated via " + appliance.getClass().getSimpleName() + "::calculateEnergyConsumption()");
+            total += appliance.energyConsump();
         }
         System.out.println("----------------------------------------------------------------------");
         System.out.println("Device Breakdown:");
 
-        for (int i = 0; i < appliances.size(); i++) {
-            Appliance appliance = appliances.get(i);
-
-            System.out.printf("- APP-%03d (%s) : %.3f kWh Logged Today%n",
-                    i + 1,
-                    appliance.getName(),
-                    appliance.energyConsump());
+        for (Appliance appliance : appliances) {
+            // Appends the mandatory (Inverter Adjusted) tag if it is a cooling appliance
+            String trackingLabel = appliance.getType().equalsIgnoreCase("COOLING") ? " (Inverter Adjusted)" : "";
+            System.out.printf("- %s (%s) : %.3f kWh Logged Today%s%n", 
+                    appliance.getId(), 
+                    appliance.getName(), 
+                    appliance.energyConsump(), 
+                    trackingLabel);
         }
 
         System.out.println("----------------------------------------------------------------------");
