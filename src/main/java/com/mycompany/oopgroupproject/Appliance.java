@@ -10,6 +10,8 @@ package com.mycompany.oopgroupproject;
  */
 public class Appliance {
     //instance variable - encapsulation
+    private static int idCounter =1;
+    private String id;
     private String name;
     private double powerWatts;
     private double hoursPerDay;
@@ -20,9 +22,14 @@ public class Appliance {
     //no need return type eg.void
     //method name follows the clas name
     public Appliance (String name, double powerWatts, double hoursPerDay){ //parameterized constructor 
-        this.name = name;
-        this.powerWatts = powerWatts;
-        this.hoursPerDay = hoursPerDay;
+        this.id = String.format("APP-%03d", idCounter ++);
+        setName(name);
+        setPowerWatts(powerWatts);
+        setHoursPerDay(hoursPerDay);
+    }
+    
+    public String getId() { 
+        return id; 
     }
     
     public String getName(){
@@ -74,6 +81,10 @@ public class Appliance {
     
     public String getType(){
         return "General Appliance";
+    }
+    
+    public String getConfigDetails() { 
+        return "N/A"; 
     }
     
     // print the appliance
