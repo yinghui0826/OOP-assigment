@@ -8,13 +8,7 @@ package com.mycompany.oopgroupproject;
  *
  * @author bongd
  */
-public class LightAppliance {
-    
-    /**
-     *
-     */
-    public class LightAppliance extends Appliance {
-
+public class LightAppliance extends Appliance {
     private String bulbType;
 
     public LightAppliance(String name, double powerWatts, double hoursPerDay, String bulbType) {
@@ -37,13 +31,11 @@ public class LightAppliance {
 
     @Override
     public double energyConsump() {
-        return (getPowerWatts() * getHoursPerDay()) / 1000.0;
+        return super.energyConsump();
     }
 
     @Override
-    public void displayAppliance() {
-        super.displayAppliance();
-        System.out.println("Bulb Type: " + bulbType);
+    public String getConfigDetails() {
+        return "Type: " + bulbType;
     }
-}
 }
